@@ -46,20 +46,28 @@ def get_paragraph_ind(p, doc):
     * Character styles
     * Direct Formatting
     """
-
-    if p.pPr is not None and\
-            p.pPr.ind is not None:
-        return p.pPr.ind
+    try:
+        if p.pPr is not None and\
+                p.pPr.ind is not None:
+            return p.pPr.ind
+    except:
+        pass
 
     num_style = get_num_style(p, doc)
-    if num_style is not None and \
-            num_style.pPr is not None and \
-            num_style.pPr.ind is not None:
-        return num_style.pPr.ind
+    try:
+        if num_style is not None and \
+                num_style.pPr is not None and \
+                num_style.pPr.ind is not None:
+            return num_style.pPr.ind
+    except:
+        pass
 
     pStyle = get_pStyle(p, doc)
-    if pStyle is not None and \
-            pStyle.pPr is not None and \
-            pStyle.pPr.ind is not None:
-        return pStyle.pPr.ind
+    try:
+        if pStyle is not None and \
+                pStyle.pPr is not None and \
+                pStyle.pPr.ind is not None:
+            return pStyle.pPr.ind
+    except:
+        pass
     return None
